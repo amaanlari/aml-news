@@ -1,4 +1,4 @@
-package com.lari.aml_news
+package com.lari.aml_news.models
 
 data class Article(
     val author: String,
