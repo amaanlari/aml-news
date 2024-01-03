@@ -38,7 +38,6 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
     override fun getItemCount(): Int {
         return differ.currentList.size
     }
-
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
         val article = differ.currentList[position]
         holder.itemView.apply {
@@ -47,6 +46,7 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
             holder.binding.tvTitle.text = article.title
             holder.binding.tvDescription.text = article.description
             holder.binding.tvPublishedAt.text = article.publishedAt
+                .substring(0, article.publishedAt.indexOf('T'))
             setOnClickListener {
                 onItemClickListener?. let { it(article) }
             }
@@ -54,7 +54,6 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
     }
 
     private var onItemClickListener: ((Article) -> Unit)? = null
-
     fun setOnItemClickListener(listener: (Article) -> Unit) {
         onItemClickListener = listener
     }
