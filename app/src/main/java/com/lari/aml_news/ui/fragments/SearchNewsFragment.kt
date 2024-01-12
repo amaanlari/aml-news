@@ -10,8 +10,10 @@ import android.view.ViewGroup
  import androidx.core.widget.addTextChangedListener
  import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.lari.aml_news.adapters.NewsAdapter
+ import androidx.navigation.fragment.findNavController
+ import androidx.recyclerview.widget.LinearLayoutManager
+ import com.lari.aml_news.R
+ import com.lari.aml_news.adapters.NewsAdapter
 import com.lari.aml_news.databinding.FragmentSearchNewsBinding
 import com.lari.aml_news.ui.NewsActivity
 import com.lari.aml_news.ui.NewsViewModel
@@ -47,6 +49,16 @@ class SearchNewsFragment : Fragment() {
         // Instantiate the view model using NewsActivity's view model.
         viewModel = (activity as NewsActivity).viewModel
         setupRecyclerView()
+
+        newsAdapter.setOnItemClickListener {
+            val bundle = Bundle().apply {
+                putSerializable("article", it)
+            }
+            findNavController().navigate(
+                R.id.action_searchNewsFragment2_to_articleFragment,
+                bundle
+            )
+        }
 
         binding.tilSearch.setEndIconOnClickListener {
             binding.tietSearch.clearFocus()

@@ -1,10 +1,13 @@
  package com.lari.aml_news.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import com.lari.aml_news.R
 import com.lari.aml_news.databinding.FragmentArticleBinding
 import com.lari.aml_news.ui.NewsActivity
@@ -17,6 +20,7 @@ import com.lari.aml_news.ui.NewsViewModel
      private val binding get() = _binding!!
 
      private lateinit var viewModel: NewsViewModel
+     val args: ArticleFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,6 +36,10 @@ import com.lari.aml_news.ui.NewsViewModel
          super.onViewCreated(view, savedInstanceState)
          // Instantiate the view model using NewsActivity's view model.
          viewModel = (activity as NewsActivity).viewModel
+         val article = args.article
+         Log.e("ArticleFragment", "this is the ${article.title}")
+         binding.webView.webViewClient = WebViewClient()
+         binding.webView.loadUrl(article.url)
      }
 
      override fun onDestroyView() {
