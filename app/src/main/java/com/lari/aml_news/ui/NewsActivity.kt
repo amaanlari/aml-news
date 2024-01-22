@@ -2,6 +2,7 @@ package com.lari.aml_news.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -16,6 +17,9 @@ class NewsActivity : AppCompatActivity() {
     lateinit var viewModel: NewsViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Handle the splash screen transition.
+        val splashScreen = installSplashScreen()
+
         super.onCreate(savedInstanceState)
         binding = ActivityNewsBinding.inflate(layoutInflater)
         val view = binding.root

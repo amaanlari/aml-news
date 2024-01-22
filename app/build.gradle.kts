@@ -40,13 +40,13 @@ android {
 }
 
 dependencies {
-    val navVersion = "2.7.5"
-    val lifecycleVersion = "2.6.2"
+    val navVersion = "2.7.6"
+    val lifecycleVersion = "2.7.0"
     val roomVersion = "2.6.1"
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.10.0")
+    implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
@@ -73,8 +73,8 @@ dependencies {
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
 
     // Coroutine Lifecycle Scopes
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
-    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
 
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
@@ -84,4 +84,7 @@ dependencies {
     // Glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
     kapt("com.github.bumptech.glide:ksp:4.16.0")
+
+    // SplashScreen
+    implementation("androidx.core:core-splashscreen:1.0.1")
 }

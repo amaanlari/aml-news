@@ -41,7 +41,7 @@ import com.lari.aml_news.ui.NewsViewModel
          Log.e("ArticleFragment", "this is the ${article.title}")
          binding.webView.apply {
              webViewClient = WebViewClient()
-             loadUrl(article.url)
+             article.url?.let { loadUrl(it) }
              true.also { settings.javaScriptEnabled }
          }
 
