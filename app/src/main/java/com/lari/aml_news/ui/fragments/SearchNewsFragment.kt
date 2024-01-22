@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
  import android.view.inputmethod.InputMethodManager
  import android.widget.AbsListView
+ import android.widget.Toast
  import androidx.core.widget.addTextChangedListener
  import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -100,6 +101,7 @@ class SearchNewsFragment : Fragment() {
                     hideProgessBar()
                     response.message?.let { message ->
                         Log.e(TAG, "An error occured : $message")
+                        Toast.makeText(context, "ERROR: $message", Toast.LENGTH_LONG).show()
                     }
                 }
                 is Resource.Loading -> {
